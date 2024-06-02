@@ -1,6 +1,6 @@
 {{ include ('header.html') }}
 
-    <label for="Aktuální štítky na knížce"> Vaše aktuální štítky na knížce {{ knizka }}: </label> <br>
+    <label for="Aktuální štítky na knížce"> Vaše aktuální štítky na knížce {{ knizka.knizka }}: </label> <br>
     <table>
         <td> 
             {{ foreach ($stitky as $stitek) }}
@@ -25,12 +25,12 @@
             <option value="NULL" selected> -- nevybráno -- </option>
             {{ foreach ($stitky as $stitek) }}
                 {{ if ($knizka.id != $stitek.id_knizka) }} 
-                    <option value="{{ stitek.id }}"> {{ zanr.nazev }} </option>
+                    <option value="{{ stitek.id }}"> {{ stitek.nazev }} </option>
                 {{ endif }}
             {{ endforeach }}    
         </select> <br>
     
-        <input type="submit" name="OK"> OK <br>
+        <input type="submit" name="OK" value="OK"> <br>
         
     </form>
 

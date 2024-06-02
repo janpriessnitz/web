@@ -11,11 +11,13 @@
     $query_stitky = $db->prepare('SELECT * FROM stitky WHERE :session_id = stitky.id_vlastnik');
     $query_stitky->execute([ ':session_id' => '1']);
 
-    $query_knizka->fetchAll(PDO::FETCH_ASSOC);
+    $knizka = $query_knizka->fetchAll(PDO::FETCH_ASSOC)[0];
 
-    $query_stitky->fetchAll(PDO::FETCH_ASSOC);
+    $stitky = $query_stitky->fetchAll(PDO::FETCH_ASSOC);
 
-    $vysledek = ['knizka' => $query_knizka, 'stitky' => $query_stitky];
+    $vysledek = ['knizka' => $knizka, 'stitky' => $stitky];
+
+    var_dump($vysledek);
 
     $et = EasyTemplate::new();
     echo $et->render('static/formular_pridat_stitek.html', $vysledek);
