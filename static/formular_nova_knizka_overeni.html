@@ -1,6 +1,6 @@
-{{ include('header.html') }}
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
-    <h3> Knížka úspěšně přidána. </h3>  
+    <h3> Knížka úspěšně přidána. </h3>
     Název: {{ knizka }} <br>
     Autor: {{ autor }} <br>
     Žánr: {{ zanr }}

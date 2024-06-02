@@ -1,13 +1,13 @@
-{{ include ('header.html') }}
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
     <label for="Aktuální štítky na knížce"> Vaše aktuální štítky na knížce {{ knizka.knizka }}: </label> <br>
     <table>
-        <td> 
+        <td>
             {{ foreach ($stitky as $stitek) }}
-                <!-- {{ if ($user_id == $stitek.id) }} 
+                <!-- {{ if ($user_id == $stitek.id) }}
 
                 {{ endif }} -->
-                {{ if ($knizka.id == $stitek.id_knizka) }} 
+                {{ if ($knizka.id == $stitek.id_knizka) }}
                     {{ stitek.nazev }}
                     <a href="stitek_smazat.php?stitek_id={{ stitek.id }}"> smazat </a>
                 {{ endif }}
@@ -24,14 +24,14 @@
         <select name="stitek_id" id="stitek_id">
             <option value="NULL" selected> -- nevybráno -- </option>
             {{ foreach ($stitky as $stitek) }}
-                {{ if ($knizka.id != $stitek.id_knizka) }} 
+                {{ if ($knizka.id != $stitek.id_knizka) }}
                     <option value="{{ stitek.id }}"> {{ stitek.nazev }} </option>
                 {{ endif }}
-            {{ endforeach }}    
+            {{ endforeach }}
         </select> <br>
-    
+
         <input type="submit" name="OK" value="OK"> <br>
-        
+
     </form>
 
 {{ include('footer.html') }}

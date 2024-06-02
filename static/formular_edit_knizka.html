@@ -1,4 +1,4 @@
-{{ include('header.html') }}
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
     <form action="edit_knizka_overeni.php" method="post">
 
@@ -28,7 +28,7 @@
 
         <label for="zanr_text"> nebo přidejte nový: </label>
         <input type="text" value="" name="zanr_text" id="zanr_text"> <br>
-        
+
         <input type="submit" name="OK"><br>
 
     </form>

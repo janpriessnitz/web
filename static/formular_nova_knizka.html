@@ -1,4 +1,4 @@
-{{ include('header.html') }}
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
 <form action="nova_knizka_overeni.php" method="POST">
 <!-- pokud pisu text disable dropdown menu, pokud vyberu dropdown menu disable text -->
@@ -7,7 +7,7 @@
     <label for="knizka_text"> Knížka: přidat </label>
     <input type="text" name="knizka_text" id="knizka_text" > <br>
 <!-- Chybova hlaska: Chybi nazev knizky! -->
- 
+
 <!-- AUTOR -->
     <label for="autor_text"> Autor: přidat </label>
     <input type="text" name="autor_text" id="autor_text">
@@ -33,7 +33,7 @@
         <option value="NULL" selected> -- nevybráno -- </option>
         {{ foreach ($zanry as $zanr) }}
         <option value="{{ zanr.id }}"> {{ zanr.nazev }} </option>
-        {{ endforeach }}    
+        {{ endforeach }}
     </select> <br>
 
     <input type="submit" name="OK"><br>

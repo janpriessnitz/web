@@ -23,8 +23,7 @@
     $vysledek = ['knizka' => $knizka, 'autori' => $autori, 'zanry' => $zanry];
 
     session_start();
-    $vysledek['prihlaseny_uzivatel_id'] = array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : 0;
-    $vysledek['prihlaseny_uzivatel_email'] = array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : 0;
+    $vysledek['prihlaseni'] = ['id' => array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : 0, 'email' => array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : 0];
 
     $et = EasyTemplate::new();
     echo $et->render('static/formular_edit_knizka.html', $vysledek);

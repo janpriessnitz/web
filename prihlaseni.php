@@ -18,13 +18,11 @@
     $uzivatel = $query->fetchAll(PDO::FETCH_ASSOC)[0];
 
     if (password_verify($heslo, $uzivatel['heslo'])) {
-      echo "Spravne heslo";
       session_start();
       $_SESSION['prihlaseny_uzivatel_id'] = $uzivatel['id'];
       $_SESSION['prihlaseny_uzivatel_email'] = $uzivatel['email'];
-    } else {
-      echo "Spatne heslo";
     }
 
+    header("Location: index.php");
 
     // $et = EasyTemplate::new();

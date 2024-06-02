@@ -1,5 +1,5 @@
 <?php
-    
+
     require __DIR__.'/vendor/autoload.php';
     use PhpPkg\EasyTpl\EasyTemplate;
 
@@ -18,6 +18,9 @@
     $vysledek = ['knizka' => $knizka, 'stitky' => $stitky];
 
     var_dump($vysledek);
+
+    session_start();
+    $vysledek['prihlaseni'] = ['id' => (array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : 0), 'email' => (array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : "")];
 
     $et = EasyTemplate::new();
     echo $et->render('static/formular_pridat_stitek.html', $vysledek);
