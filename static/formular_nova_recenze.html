@@ -1,0 +1,14 @@
+{{ include('header.html') }}
+
+<h3>Přidat recenzi ke knize - {{ $kniha.knizka }}</h3>
+
+<form action="nova_recenze_overeni.php" method="POST">
+    <input type="hidden" name="kniha_id" value="{{ $kniha.id }}">
+<!-- RECENZE -->
+    <label for="recenze_text"> Text recenze: </label><br>
+    <textarea name="recenze_text" id="recenze_text" rows="10" cols="50"></textarea><br>
+<!-- Chybova hlaska: Prazdny text! -->
+    <input type="submit" value="Přidat recenzi"><br>
+</form>
+
+{{ include('footer.html') }}

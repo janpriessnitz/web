@@ -1,0 +1,177 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f754c3a8c677941aefe5d80aae22bf37",
+    "packages": [
+        {
+            "name": "phppkg/easytpl",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phppkg/easytpl.git",
+                "reference": "7de6e66355d61089dc117d491fb45667dd7ab15e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phppkg/easytpl/zipball/7de6e66355d61089dc117d491fb45667dd7ab15e",
+                "reference": "7de6e66355d61089dc117d491fb45667dd7ab15e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=8.0.1",
+                "toolkit/fsutil": "~2.0",
+                "toolkit/stdlib": "~2.0"
+            },
+            "type": "template",
+            "autoload": {
+                "psr-4": {
+                    "PhpPkg\\EasyTpl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "https://github.com/inhere"
+                }
+            ],
+            "description": "⚡️ Simple and fastly template engine for PHP",
+            "homepage": "https://github.com/phppkg/easytpl",
+            "support": {
+                "issues": "https://github.com/phppkg/easytpl/issues",
+                "source": "https://github.com/phppkg/easytpl/tree/v1.2.2"
+            },
+            "time": "2023-06-25T09:39:54+00:00"
+        },
+        {
+            "name": "toolkit/fsutil",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-toolkit/fsutil.git",
+                "reference": "ffee99a16fd533d17ff25dea53f6f3bf7aa9d9fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-toolkit/fsutil/zipball/ffee99a16fd533d17ff25dea53f6f3bf7aa9d9fc",
+                "reference": "ffee99a16fd533d17ff25dea53f6f3bf7aa9d9fc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.1",
+                "toolkit/stdlib": "^2.0"
+            },
+            "suggest": {
+                "inhere/console": "a lightweight php console application library.",
+                "inhere/php-validate": "Very lightweight data validate tool"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Toolkit\\FsUtil\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "https://github.com/inhere"
+                }
+            ],
+            "description": "some file system tool library of the php",
+            "homepage": "https://github.com/php-toolkit/fsutil",
+            "keywords": [
+                "filesystem",
+                "library",
+                "php",
+                "tool"
+            ],
+            "support": {
+                "issues": "https://github.com/php-toolkit/fsutil/issues",
+                "source": "https://github.com/php-toolkit/fsutil/tree/v2.0.6"
+            },
+            "time": "2023-04-16T05:36:17+00:00"
+        },
+        {
+            "name": "toolkit/stdlib",
+            "version": "v2.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-toolkit/stdlib.git",
+                "reference": "ebcac8bf315e1f05c0db80ac1bd22b457ffcdd81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-toolkit/stdlib/zipball/ebcac8bf315e1f05c0db80ac1bd22b457ffcdd81",
+                "reference": "ebcac8bf315e1f05c0db80ac1bd22b457ffcdd81",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "psr/container": "^2.0"
+            },
+            "suggest": {
+                "inhere/php-validate": "Very lightweight data validate tool"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/func.php"
+                ],
+                "psr-4": {
+                    "Toolkit\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "https://github.com/inhere/"
+                }
+            ],
+            "description": "some stdlib tool library of the php",
+            "homepage": "https://github.com/php-toolkit/stdlib",
+            "keywords": [
+                "array",
+                "library",
+                "object",
+                "php",
+                "string",
+                "tool"
+            ],
+            "support": {
+                "issues": "https://github.com/php-toolkit/stdlib/issues",
+                "source": "https://github.com/php-toolkit/stdlib/tree/v2.0.12"
+            },
+            "time": "2024-02-08T05:30:58+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

@@ -1,0 +1,46 @@
+{{ include('header.html') }}
+
+<form action="nova_knizka_overeni.php" method="POST">
+<!-- pokud pisu text disable dropdown menu, pokud vyberu dropdown menu disable text -->
+
+<!-- KNIZKA -->
+    <label for="knizka_text"> Knížka: přidat </label>
+    <input type="text" name="knizka_text" id="knizka_text" > <br>
+<!-- Chybova hlaska: Chybi nazev knizky! -->
+ 
+<!-- AUTOR -->
+    <label for="autor_text"> Autor: přidat </label>
+    <input type="text" name="autor_text" id="autor_text">
+<!-- Chybova hlaska: Tento autor jiz existuje! -->
+
+    <label for="autor_id"> nebo vybrat </label>
+    <select name="autor_id" id="autor_id">
+        <option value="NULL" selected> -- nevybráno -- </option>
+        {{ foreach ($autori as $autor) }}
+        <option value="{{ autor.id }}"> {{ autor.jmeno }} </option>
+        {{ endforeach }}
+    </select> <br>
+<!-- Chybova hlaska: Je treba pridat nebo vybrat autora! -->
+
+<!-- ŽÁNR -->
+<!-- zanry muze pridavat jen admin -->
+    <label for="zanr_text"> Žánr: přidat </label>
+    <input type="text" name="zanr_text" id="zanr_text">
+<!-- Chybova hlaska: Zanr jiz existuje -->
+
+    <label for="zanr_id"> nebo vybrat: </label>
+    <select name="zanr_id" id="zanr_id">
+        <option value="NULL" selected> -- nevybráno -- </option>
+        {{ foreach ($zanry as $zanr) }}
+        <option value="{{ zanr.id }}"> {{ zanr.nazev }} </option>
+        {{ endforeach }}    
+    </select> <br>
+
+    <input type="submit" name="OK"><br>
+</form>
+
+{{ include('footer.html') }}
+
+<!-- do dropdown pridat -nevybrano- -->
+<!-- kontrola duplicity -->
+<!-- zanr muse zustat prazdny -->

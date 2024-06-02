@@ -1,0 +1,30 @@
+{{ include('header.html') }}
+
+<h2> {{ knizka.knizka }} </h2>
+<h3> {{ knizka.autor }} </h3>
+<h3> {{ knizka.zanr}} </h3>
+
+<table>
+    <tr>
+        <th> Autor </th>
+        <th> Recenze </th>
+        <th> Upravit </th>
+        <th> Smazat </th>
+    </tr>
+    {{foreach ($recenze as $recenz)}}
+    <tr>
+        <td> {{ recenz.uzivatel }} </td>
+        <td> {{ recenz.text_recenze }} </td>
+        <td> zde </td>
+        <td> zde </td>
+        <td> přidat recenzi </td>
+        <td> upraviz recenzi </td>
+        <td> odebrat recenzi </td>
+        <td> přidat štítek </td>
+        <td> odebrat štítek </td>
+    </tr>
+    {{ endforeach }}
+</table>
+<a href="nova_recenze.php?kniha_id={{ $knizka.id }}">Přidat recenzi</a>
+
+{{ include('footer.html') }}

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "phppkg/easytpl": "^1.2"
+    }
+}

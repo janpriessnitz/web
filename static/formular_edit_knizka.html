@@ -1,0 +1,36 @@
+{{ include('header.html') }}
+
+    <form action="edit_knizka_overeni.php" method="post">
+
+        <input type="hidden" name="knizka_id" value="{{ $knizka.id }}">
+
+        <label for="knizka_text"> Upravit název: </label>
+        <input type="text" value="{{ $knizka.knizka }}" name="knizka_text" id="knizka_text"> <br>
+
+
+        <label for="autor_id"> Vyberte autora: </label>
+        <select name="autor_id" id="autor_id">
+            {{ foreach ($autori as $autor) }}
+                <option value="{{ $autor.id }}" {{ if ( $autor.id == $knizka.autor ) }} selected {{ endif }} > {{ $autor.jmeno }} </option>
+            {{ endforeach }}
+        </select>
+
+        <label for="autor_text"> nebo přidejte nového: </label>
+        <input type="text" value="" name="autor_text" id="autor_text"> <br>
+
+
+        <label for="zanr_id"> Vyberte žánr: </label>
+        <select name="zanr_id" id="zanr_id">
+            {{ foreach ($zanry as $zanr) }}
+                <option value="{{ $zanr.id }}" {{ if ( $zanr.id == $knizka.zanr ) }} selected {{ endif }} > {{ $zanr.nazev }}</option>
+            {{ endforeach }}
+        </select>
+
+        <label for="zanr_text"> nebo přidejte nový: </label>
+        <input type="text" value="" name="zanr_text" id="zanr_text"> <br>
+        
+        <input type="submit" name="OK"><br>
+
+    </form>
+
+{{ include('footer.html') }}
