@@ -1,13 +1,11 @@
-<!-- TODO -->
-
-<!-- DELETE FROM table_name WHERE condition;
-DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste'; -->
-
 <?php
     require __DIR__.'/vendor/autoload.php';
     use PhpPkg\EasyTpl\EasyTemplate;
 
     require_once 'db.php';
+
+    $query = $db->prepare('DELETE FROM knizky WHERE knizky.id = :knizka_id');
+    $query->execute(['knizka_id'=> $_POST['knizka_id']]);
 
     $vysledek = array();
 

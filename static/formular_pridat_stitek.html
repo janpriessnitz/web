@@ -1,0 +1,37 @@
+{{ include ('header.html') }}
+
+    <label for="Aktuální štítky na knížce"> Vaše aktuální štítky na knížce {{ knizka }}: </label> <br>
+    <table>
+        <td> 
+            {{ foreach ($stitky as $stitek) }}
+                <!-- {{ if ($user_id == $stitek.id) }} 
+
+                {{ endif }} -->
+                {{ if ($knizka.id == $stitek.id_knizka) }} 
+                    {{ stitek.nazev }}
+                    <a href="stitek_smazat.php?stitek_id={{ stitek.id }}"> smazat </a>
+                {{ endif }}
+            {{ endforeach }}
+        </td>
+    </table>
+
+    <form action="stitek_pridat_overeni.php" method="POST">
+
+        <label for="Přidat štítek"> Přidat nový: </label>
+        <input type="text" name="stitek_text" id="stitek_text">
+
+        <label for="stitek_id"> nebo vybrat: </label>
+        <select name="stitek_id" id="stitek_id">
+            <option value="NULL" selected> -- nevybráno -- </option>
+            {{ foreach ($stitky as $stitek) }}
+                {{ if ($knizka.id != $stitek.id_knizka) }} 
+                    <option value="{{ stitek.id }}"> {{ zanr.nazev }} </option>
+                {{ endif }}
+            {{ endforeach }}    
+        </select> <br>
+    
+        <input type="submit" name="OK"> OK <br>
+        
+    </form>
+
+{{ include('footer.html') }}

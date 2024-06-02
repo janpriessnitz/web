@@ -4,7 +4,7 @@
 
     require_once 'db.php';
 
-    $query = $db->prepare('SELECT knizky.knizka, autori.jmeno, zanry.nazev FROM knizky JOIN autori ON autori.id = knizky.autor JOIN zanry ON zanry.id = knizky.zanr WHERE knizky.id = :knizka_id');
+    $query = $db->prepare('SELECT knizky.id, knizky.knizka, autori.jmeno, zanry.nazev FROM knizky JOIN autori ON autori.id = knizky.autor JOIN zanry ON zanry.id = knizky.zanr WHERE knizky.id = :knizka_id');
     $query->execute([':knizka_id' => htmlspecialchars($_GET['knizka_id'])]);
 
     $knizka = $query->fetchAll(PDO::FETCH_ASSOC);

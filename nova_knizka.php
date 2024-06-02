@@ -11,9 +11,9 @@
     $query_zanry = $db->prepare('SELECT * FROM zanry');
     $query_zanry->execute();
 
-    $autori = ($query_autori->fetchAll(PDO::FETCH_ASSOC));
+    $autori = $query_autori->fetchAll(PDO::FETCH_ASSOC);
 
-    $zanry = ($query_zanry->fetchAll(PDO::FETCH_ASSOC));
+    $zanry = $query_zanry->fetchAll(PDO::FETCH_ASSOC);
 
     $vysledek = ['autori' => $autori, 'zanry' => $zanry];
 

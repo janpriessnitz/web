@@ -16,13 +16,17 @@
         <td> přidat recenzi </td>
         <td> upraviz recenzi </td>
         <td> odebrat recenzi </td>
-        <td> přidat štítek </td>
-        <td> odebrat štítek </td>
+        <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td>
 
     </tr>
     {{ endforeach }}
 </table>
 
+<h3> <a href="tabulka_stitku.html"> Moje štítky </a> </h3>
+
 <h3> <a href="nova_knizka.php"> Přidat novou knížku </a> </h3>
+<h3> <a href="nova_knizka.php"> Smazat autora </a> </h3>
+<h3> <a href="nova_knizka.php"> Smazat žánr </a> </h3>
+
 
 {{ include('footer.html') }}
