@@ -23,7 +23,7 @@
     // ZANR
     if(!empty($_POST['zanr_text'])){
         $query_zanr = $db->prepare('INSERT INTO zanry(nazev) VALUES (:zanr)');
-        $query_zanr->execute([':zanr'=> htmlspecialchars($_POST['zanr_text'])]);
+        $query_zanr->execute([':zanr' => htmlspecialchars($_POST['zanr_text'])]);
         $zanr_id = $db->lastInsertId();
         $zanr_text = htmlspecialchars($_POST['zanr_text']);
     }

@@ -4,12 +4,9 @@
     <table>
         <td>
             {{ foreach ($stitky as $stitek) }}
-                <!-- {{ if ($user_id == $stitek.id) }}
-
-                {{ endif }} -->
-                {{ if ($knizka.id == $stitek.id_knizka) }}
+                {{ if ($stitky_prirazene[$stitek.id]) }}
                     {{ stitek.nazev }}
-                    <a href="stitek_smazat.php?stitek_id={{ stitek.id }}"> smazat </a>
+                    <a href="stitek_smazat.php?stitek_id={{ stitek.id }}"> smazat </a> <br>
                 {{ endif }}
             {{ endforeach }}
         </td>
@@ -26,7 +23,7 @@
         <select name="stitek_id" id="stitek_id">
             <option value="NULL" selected> -- nevybráno -- </option>
             {{ foreach ($stitky as $stitek) }}
-                {{ if ($knizka.id != $stitek.id_knizka) }}
+                {{ if (!($stitky_prirazene[$stitek.id])) }}
                     <option value="{{ stitek.id }}"> {{ stitek.nazev }} </option>
                 {{ endif }}
             {{ endforeach }}
