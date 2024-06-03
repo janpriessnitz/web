@@ -17,10 +17,12 @@
     // TODO: neexistujici uzivatel
     $uzivatel = $query->fetchAll(PDO::FETCH_ASSOC)[0];
 
+    session_start();
     if (password_verify($heslo, $uzivatel['heslo'])) {
-      session_start();
       $_SESSION['prihlaseny_uzivatel_id'] = $uzivatel['id'];
       $_SESSION['prihlaseny_uzivatel_email'] = $uzivatel['email'];
+    } else {
+      $_SESSION['error_msg'] = 'Špatné jméno nebo heslo.';
     }
 
     header("Location: index.php");

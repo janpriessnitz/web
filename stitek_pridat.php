@@ -7,8 +7,9 @@
 
     session_start();
     $prihlaseni = ['id' => (array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : 0), 'email' => (array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : "")];
-    
+
     if($prihlaseni['id'] == 0){
+        $_SESSION['error_msg'] = "Pro přidání štítku se musíte přihlásit.";
         header("Location: index.php");
     }
     else{

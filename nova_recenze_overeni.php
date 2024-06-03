@@ -8,6 +8,7 @@
     $prihlaseni = ['id' => (array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : ""), 'email' => (array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : "")];
 
     if ($prihlaseni['id'] == "") {
+        $_SESSION['error_msg'] = 'Pro přidání recenze se musíte přihlásit.';
         header("Location: recenze.php?knizka_id=".htmlspecialchars($_POST['kniha_id']));
     }
 

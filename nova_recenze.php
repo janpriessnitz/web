@@ -19,5 +19,10 @@
     session_start();
     $vysledek['prihlaseni'] = ['id' => (array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : 0), 'email' => (array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : "")];
 
+    if ($vysledek['prihlaseni']['email'] == "") {
+        $_SESSION['error_msg'] = 'Pro přidání recenze se musíte přihlásit.';
+        header('Location: index.php');
+    }
+
     $et = EasyTemplate::new();
     echo $et->render('static/formular_nova_recenze.html', $vysledek);
