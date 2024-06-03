@@ -27,18 +27,20 @@
         <td> {{ $knizka.zanr }} </td>
         <td> <a href="nova_recenze.php?kniha_id={{ $knizka.id }}"> přidat recenzi </a> </td>
         <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td>
-        <!-- admin -->
-        <td> <a href="edit_knizka.php?knizka_id={{ $knizka.id }}"> upravit </a> </td>
-        <td> <a href="delete_knizka.php?knizka_id={{ knizka.id }}"> smazat </a> </td>
+        {{ if ($prihlaseni.email == 'admin@admin') }}
+            <td> <a href="edit_knizka.php?knizka_id={{ $knizka.id }}"> upravit </a> </td>
+            <td> <a href="delete_knizka.php?knizka_id={{ knizka.id }}"> smazat </a> </td>
+        {{ endif }}
 
     </tr>
     {{ endforeach }}
 </table>
 
-<!-- admin  -->
-<h3> <a href="nova_knizka.php"> Přidat novou knížku </a> </h3>
-<h3> <a href="delete_autor.php"> Smazat autora </a> </h3>
-<h3> <a href="delete_zanr.php"> Smazat žánr </a> </h3>
+{{ if ($prihlaseni.email == 'admin@admin') }}
+    <h3> <a href="nova_knizka.php"> Přidat novou knížku </a> </h3>
+    <h3> <a href="delete_autor.php"> Smazat autora </a> </h3>
+    <h3> <a href="delete_zanr.php"> Smazat žánr </a> </h3>
+{{ endif }}
 
 
 {{ include('footer.html') }}
