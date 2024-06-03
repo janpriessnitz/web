@@ -1,5 +1,12 @@
 {{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
+{{ if ($error_msg != "") }}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ $error_msg }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{ endif }}
+
 <div>
     <form action="index.php" method="GET">
     Vyhledat <label for="nazev">podle názvu</label> <input type="text" name="nazev" id="nazev">

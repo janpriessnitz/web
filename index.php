@@ -10,6 +10,7 @@
     $error_msg = array_key_exists('error_msg', $_SESSION) ? $_SESSION['error_msg'] : "";
     $_SESSION['error_msg'] = "";
 
+
     $vyhledat_nazev = (array_key_exists('nazev', $_GET) ? $_GET['nazev'] : "");
     $vyhledat_zanr = (array_key_exists('zanr', $_GET) ? $_GET['zanr'] : "");
 

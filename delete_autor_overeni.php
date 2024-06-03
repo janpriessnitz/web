@@ -7,10 +7,6 @@
     $query = $db->prepare('DELETE FROM autori WHERE :autor_id = autori.id');
     $query->execute([':autor_id' => htmlspecialchars($_POST['ke_smazani'])]);
 
-    //var_dump($_POST);
-    // $vysledek = $_POST['autor.id'];
-    // echo $vysledek;
-
     header('Location: index.php');
 
     $vysledek = array();
