@@ -1,0 +1,24 @@
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
+
+<h3>Registrace nového uživatele</h3>
+
+<form action="registrace_overeni.php" method="POST">
+
+
+  <label for="jmeno"> Jméno </label>
+    <input type="text" name="jmeno" id="jmeno" > <br>
+
+    <label for="email"> Email </label>
+    <input type="email" name="email" id="email"> <br>
+
+    <label for="heslo"> Heslo </label>
+    <input type="password" name="heslo" id="heslo"><br>
+
+    <input type="submit" name="OK" value="Registrace">
+</form>
+
+{{ include('footer.html') }}
+
+<!-- do dropdown pridat -nevybrano- -->
+<!-- kontrola duplicity -->
+<!-- zanr muse zustat prazdny -->

@@ -7,7 +7,7 @@
 
     // TODO: zkontrolovat knizka_id
 
-    $recenze_query = $db->prepare('SELECT recenze.id AS id, recenze.text AS text_recenze, uzivatele.jmeno AS uzivatel FROM recenze JOIN uzivatele ON recenze.uzivatel = uzivatele.id WHERE recenze.knizka = :knizka_id');
+    $recenze_query = $db->prepare('SELECT recenze.id AS id, recenze.text AS text_recenze, uzivatele.jmeno AS uzivatel, uzivatele.id AS uzivatel_id FROM recenze JOIN uzivatele ON recenze.uzivatel = uzivatele.id WHERE recenze.knizka = :knizka_id');
     $recenze_query->execute([':knizka_id'=>$_GET['knizka_id']]);
 
     $knizka_query = $db->prepare('SELECT zanry.nazev AS zanr, autori.jmeno AS autor, knizky.knizka, knizky.id FROM knizky JOIN zanry ON knizky.zanr = zanry.id JOIN autori ON knizky.autor = autori.id WHERE :knizka_id = knizky.id');

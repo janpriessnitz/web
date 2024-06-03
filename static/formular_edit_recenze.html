@@ -1,0 +1,15 @@
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
+
+<h3>Upravit recenzi ke knize - {{ $recenze.kniha_nazev }}</h3>
+
+<form action="edit_recenze_overeni.php" method="POST">
+    <input type="hidden" name="recenze_id" value="{{ $recenze.id }}">
+    <input type="hidden" name="kniha_id" value="{{ $recenze.kniha_id }}">
+<!-- RECENZE -->
+    <label for="recenze_text"> Text recenze: </label><br>
+    <textarea name="recenze_text" id="recenze_text" rows="10" cols="50">{{ $recenze.text }}</textarea><br>
+<!-- Chybova hlaska: Prazdny text! -->
+    <input type="submit" value="Upravit recenzi"><br>
+</form>
+
+{{ include('footer.html') }}

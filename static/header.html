@@ -18,8 +18,9 @@
 				<input type="text" name="email" id="email"> <br>
 				<label for="heslo">Heslo:</label>
 				<input type="password" name="heslo" id="heslo"> <br>
-				<input type="submit" name="send" value="Přihlásit">
+				<input type="submit" name="send" value="Přihlásit"><br>
 			</form>
+			<a href="registrace.php">Zaregistrovat se</a>
 			{{ else }}
 				uživatel: {{ $prihlaseni.email }} <br> <a href="odhlaseni.php">Odhlásit</a>
 			{{ endif }}
