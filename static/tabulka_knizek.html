@@ -25,16 +25,16 @@
         <td> {{$knizka.autor }} </td>
         <td> <a href="recenze.php?knizka_id={{ $knizka.id }}"> {{ $knizka.knizka }} </a></td>
         <td> {{ $knizka.zanr }} </td>
+        <td> <a href="nova_recenze.php?kniha_id={{ $knizka.id }}"> přidat recenzi </a> </td>
+        <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td>
+        <!-- admin -->
         <td> <a href="edit_knizka.php?knizka_id={{ $knizka.id }}"> upravit </a> </td>
         <td> <a href="delete_knizka.php?knizka_id={{ knizka.id }}"> smazat </a> </td>
-        <td> <a href="nova_recenze.php?kniha_id={{ $knizka.id }}">přidat recenzi</a> </td>
-        <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td>
 
     </tr>
     {{ endforeach }}
 </table>
 
-<h3> <a href="tabulka_stitku.html"> Moje štítky </a> </h3>
 <!-- admin  -->
 <h3> <a href="nova_knizka.php"> Přidat novou knížku </a> </h3>
 <h3> <a href="delete_autor.php"> Smazat autora </a> </h3>
