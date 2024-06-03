@@ -27,9 +27,9 @@ use function trim;
 class PregCompiler extends AbstractCompiler
 {
     // add slashes tag name
-    protected string $openTagE = '\{\{';
+    private string $openTagE = '\{\{';
 
-    protected string $closeTagE = '\}\}';
+    private string $closeTagE = '\}\}';
 
     /**
      * like :
@@ -37,9 +37,9 @@ class PregCompiler extends AbstractCompiler
      *
      * @var string
      */
-    protected string $blockPattern = '';
+    private string $blockPattern = '';
 
-    protected string $directivePattern = '';
+    private string $directivePattern = '';
 
     /**
      * @param string $open

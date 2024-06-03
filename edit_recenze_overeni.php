@@ -21,6 +21,7 @@
 
 
     if ($recenze['uzivatel'] != $prihlaseni['id']) {
+        $_SESSION['error_msg'] = "Nemůžete upravit cizí recenzi!";
         header("Location: index.php");
         die();
     }

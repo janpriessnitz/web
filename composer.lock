@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f754c3a8c677941aefe5d80aae22bf37",
+    "content-hash": "591f8f7de311f7a917fcce04f25bba06",
     "packages": [
         {
             "name": "phppkg/easytpl",
-            "version": "v1.2.2",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phppkg/easytpl.git",
-                "reference": "7de6e66355d61089dc117d491fb45667dd7ab15e"
+                "reference": "7d57cd5ab8880cf441800ad96365b0c9960795c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phppkg/easytpl/zipball/7de6e66355d61089dc117d491fb45667dd7ab15e",
-                "reference": "7de6e66355d61089dc117d491fb45667dd7ab15e",
+                "url": "https://api.github.com/repos/phppkg/easytpl/zipball/7d57cd5ab8880cf441800ad96365b0c9960795c6",
+                "reference": "7d57cd5ab8880cf441800ad96365b0c9960795c6",
                 "shasum": ""
             },
             "require": {
@@ -47,9 +47,9 @@
             "homepage": "https://github.com/phppkg/easytpl",
             "support": {
                 "issues": "https://github.com/phppkg/easytpl/issues",
-                "source": "https://github.com/phppkg/easytpl/tree/v1.2.2"
+                "source": "https://github.com/phppkg/easytpl/tree/v1.2.1"
             },
-            "time": "2023-06-25T09:39:54+00:00"
+            "time": "2023-04-19T07:23:47+00:00"
         },
         {
             "name": "toolkit/fsutil",

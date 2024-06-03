@@ -15,6 +15,7 @@
     $recenze = $query->fetchAll(PDO::FETCH_ASSOC)[0];
 
     if ($recenze['uzivatel'] != $prihlaseni['id']) {
+        $_SESSION['error_msg'] = "Nemůžete smazat cizí recenzi!";
         header("Location: index.php");
         die();
     }

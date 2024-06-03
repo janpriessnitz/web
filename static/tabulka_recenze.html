@@ -1,25 +1,28 @@
 {{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
 <h2> {{ knizka.knizka }} </h2>
-<h3> {{ knizka.autor }} </h3>
-<h3> {{ knizka.zanr}} </h3>
-
-<table>
+<h4> autor: {{ knizka.autor }} </h4>
+<h4> žánr: {{ knizka.zanr}} </h4>
+<br>
+<h4>Seznam recenzí</h4>
+<table class="table">
     <tr>
         <th> Autor </th>
         <th> Recenze </th>
-        <th> Upravit </th>
-        <th> Smazat </th>
+        <th>  </th>
+        <th>  </th>
     </tr>
     {{foreach ($recenze as $recenz)}}
     <tr>
         <td> {{ $recenz.uzivatel }} </td>
         <td> {{ $recenz.text_recenze }} </td>
-        <td>{{ if ($recenz.uzivatel_id == $prihlaseni.id) }} <a href="edit_recenze.php?id={{ $recenz.id }}">zde</a> {{ endif }} </td>
-        <td>{{ if ($recenz.uzivatel_id == $prihlaseni.id) }} <a href="delete_recenze.php?id={{ $recenz.id }}">zde</a> {{ endif }} </td>
+        <td>{{ if ($recenz.uzivatel_id == $prihlaseni.id) }} <a href="edit_recenze.php?id={{ $recenz.id }}">upravit</a> {{ endif }} </td>
+        <td>{{ if ($recenz.uzivatel_id == $prihlaseni.id) }} <a href="delete_recenze.php?id={{ $recenz.id }}">smazat</a> {{ endif }} </td>
     </tr>
     {{ endforeach }}
 </table>
-<a href="nova_recenze.php?kniha_id={{ $knizka.id }}">Přidat recenzi</a>
-
+<br>
+{{ if ($prihlaseni.id != 0) }}
+<a class="btn btn-primary" href="nova_recenze.php?kniha_id={{ $knizka.id }}">Přidat recenzi</a>
+{{ endif }}
 {{ include('footer.html') }}
