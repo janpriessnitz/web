@@ -1,0 +1,14 @@
+{{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
+
+    <form action="delete_autor_overeni.php" method="POST">
+        <label for="ke_smazani"> Vyberte autora ke smazání </label> <br>
+        <select name="ke_smazani" id="ke_smazani">
+
+            {{ foreach ($autori as $autor) }}
+                <option value="{{ $autor.id }}"> <a href="delete_autor_overeni.php"> {{ $autor.jmeno }} </a> </option> 
+            {{ endforeach}} 
+
+        <input type="submit" name="potvrdit" value="Potvrdit"> </select>
+    </form>
+
+{{ include('footer.html') }}
