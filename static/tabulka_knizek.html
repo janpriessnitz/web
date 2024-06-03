@@ -1,5 +1,19 @@
 {{ include('header.html', ['prihlaseni' => $prihlaseni]) }}
 
+<div>
+    <form action="index.php" method="GET">
+    Vyhledat <label for="nazev">podle názvu</label> <input type="text" name="nazev" id="nazev">
+     a <label for="zanr">podle žánru</label>
+     <select name="zanr" id="zanr">
+        <option value="" selected> -- nevybráno -- </option>
+        {{ foreach ($zanry as $zanr) }}
+        <option value="{{ $zanr.id }}"> {{ $zanr.nazev }} </option>
+        {{ endforeach }}
+     </select>
+     <input type="submit" value="Vyhledat">
+    </form>
+</div>
+
 <table>
     <tr>
         <th> Autor </th>

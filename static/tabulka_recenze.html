@@ -13,15 +13,10 @@
     </tr>
     {{foreach ($recenze as $recenz)}}
     <tr>
-        <td> {{ recenz.uzivatel }} </td>
-        <td> {{ recenz.text_recenze }} </td>
-        <td> zde </td>
-        <td> zde </td>
-        <td> přidat recenzi </td>
-        <td> upraviz recenzi </td>
-        <td> odebrat recenzi </td>
-        <td> přidat štítek </td>
-        <td> odebrat štítek </td>
+        <td> {{ $recenz.uzivatel }} </td>
+        <td> {{ $recenz.text_recenze }} </td>
+        <td>{{ if ($recenz.uzivatel_id == $prihlaseni.id) }} <a href="edit_recenze.php?id={{ $recenz.id }}">zde</a> {{ endif }} </td>
+        <td>{{ if ($recenz.uzivatel_id == $prihlaseni.id) }} <a href="delete_recenze.php?id={{ $recenz.id }}">zde</a> {{ endif }} </td>
     </tr>
     {{ endforeach }}
 </table>
