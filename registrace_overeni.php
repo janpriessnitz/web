@@ -10,8 +10,6 @@
     $heslo = $_POST['heslo'];
     $hash = password_hash($heslo, PASSWORD_DEFAULT);
 
-    $query = $db->prepare('INSERT INTO recenze(uzivatel, text, knizka) VALUES (:uzivatel, :text, :knizka)');
-
     $query = $db->prepare('INSERT INTO uzivatele(jmeno, email, heslo) VALUES(:jmeno, :email, :heslo)');
     $query->execute([':jmeno' => $jmeno, ':email' => $email, ':heslo' => $hash]);
 
