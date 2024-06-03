@@ -14,7 +14,7 @@
     </form>
 </div>
 
-<table>
+<table class="table">
     <tr>
         <th> Autor </th>
         <th> Název </th>
@@ -27,9 +27,7 @@
         <td> {{ $knizka.zanr }} </td>
         <td> <a href="edit_knizka.php?knizka_id={{ $knizka.id }}"> upravit </a> </td>
         <td> <a href="delete_knizka.php?knizka_id={{ knizka.id }}"> smazat </a> </td>
-        <td> přidat recenzi </td>
-        <td> upraviz recenzi </td>
-        <td> odebrat recenzi </td>
+        <td> <a href="nova_recenze.php?kniha_id={{ $knizka.id }}">přidat recenzi</a> </td>
         <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td>
 
     </tr>
