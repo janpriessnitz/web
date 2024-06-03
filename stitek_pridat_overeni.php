@@ -6,10 +6,13 @@
 
     if(!empty($_POST['stitek_text'])){
         $novy_stitek = trim(htmlspecialchars($_POST['stitek_text']));
+        var_dump($novy_stitek);
+        
+
     }
     else{
 
     }
 
     $et = EasyTemplate::new();
-    echo $et->render('static/formular_nova_knizka_overeni.html', $vysledek);
+    echo $et->render('static/formular_pridat_stitek_overeni.html');

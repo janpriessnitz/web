@@ -17,6 +17,8 @@
 
     <form action="stitek_pridat_overeni.php" method="POST">
 
+        <input type="hidden" name="knizka_id" value="{{ $knizka.id }}">
+
         <label for="Přidat štítek"> Přidat nový: </label>
         <input type="text" name="stitek_text" id="stitek_text">
 
