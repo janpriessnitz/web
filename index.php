@@ -5,6 +5,11 @@
 
     require_once 'db.php';
 
+    session_start();
+
+    $error_msg = array_key_exists('error_msg', $_SESSION) ? $_SESSION['error_msg'] : "";
+    $_SESSION['error_msg'] = "";
+
     $vyhledat_nazev = (array_key_exists('nazev', $_GET) ? $_GET['nazev'] : "");
     $vyhledat_zanr = (array_key_exists('zanr', $_GET) ? $_GET['zanr'] : "");
 
@@ -37,8 +42,8 @@
 
     $vysledek = ['knizky' => $knizky, 'zanry' => $zanry];
 
-    session_start();
     $vysledek['prihlaseni'] = ['id' => (array_key_exists('prihlaseny_uzivatel_id', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_id'] : 0), 'email' => (array_key_exists('prihlaseny_uzivatel_email', $_SESSION) ? $_SESSION['prihlaseny_uzivatel_email'] : "")];
+    $vysledek['error_msg'] = $error_msg;
 
     $et = EasyTemplate::new();
     echo $et->render('static/tabulka_knizek.html', $vysledek);

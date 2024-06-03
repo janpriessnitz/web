@@ -1,5 +1,5 @@
 {
     "require": {
-        "phppkg/easytpl": "^1.2"
+        "phppkg/easytpl": "<=1.2.1"
     }
 }
