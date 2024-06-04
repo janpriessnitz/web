@@ -7,33 +7,62 @@
 </div>
 {{ endif }}
 
-<div>
-    <form action="index.php" method="GET">
-    Vyhledat <label for="nazev">podle názvu</label> <input type="text" name="nazev" id="nazev">
-     a <label for="zanr">podle žánru</label>
-     <select name="zanr" id="zanr">
-        <option value="" selected> -- nevybráno -- </option>
-        {{ foreach ($zanry as $zanr) }}
-        <option value="{{ $zanr.id }}"> {{ $zanr.nazev }} </option>
-        {{ endforeach }}
-     </select>
-     <input type="submit" value="Vyhledat">
-    </form>
-</div>
+    <div>
+        <form action="index.php" method="GET">
+            Vyhledat <label for="nazev">podle názvu</label> 
+            <input type="text" name="nazev" id="nazev" {{ if (!empty($_GET['nazev'])) }} value="{{ $_GET['nazev']}}"> {{ endif }}
+            a nebo <label for="zanr">podle žánru</label>
+            <select name="zanr" id="zanr">
+                <option value="" selected> -- nevybráno -- </option>
+                {{ foreach ($zanry as $zanr) }}
+                    {{ if ($zanr.id == $_GET['zanr']) }}
+                        <option value="{{ $zanr.id }}" selected> {{ $zanr.nazev }} </option>
+                    {{ else }}
+                        <option value="{{ $zanr.id }}"> {{ $zanr.nazev }} </option>
+                    {{ endif }}
+
+                {{ endforeach }}
+            </select>
+            a nebo <label for="stitek">podle štítku</label>
+            <select name="stitek" id="stitek">
+                <option value="" selected> -- nevybráno -- </option>
+                {{ foreach ($stitky as $stitek) }}
+                    {{ if ($stitek.id == $_GET['stitek']) }}
+                        <option value="{{ $stitek.id }}" selected> {{ $stitek.nazev }} </option>
+                    {{ else }}
+                        <option value="{{ $stitek.id }}"> {{ $stitek.nazev }} </option>
+                    {{ endif }}
+
+                {{ endforeach }}
+            </select>
+            <input type="submit" value="Vyhledat">
+        </form>
+    </div>
 
 <table class="table">
     <tr>
         <th> Autor </th>
         <th> Název </th>
         <th> Žánr </th>
+        {{ if ($prihlaseni.email != '') }} <th> Moje štítky </th> {{ endif }}
     </tr>
     {{ foreach ($knizky as $knizka) }}
     <tr>
-        <td> {{$knizka.autor }} </td>
+        <td> {{ $knizka.autor }} </td>
         <td> <a href="recenze.php?knizka_id={{ $knizka.id }}"> {{ $knizka.knizka }} </a></td>
         <td> {{ $knizka.zanr }} </td>
+        {{ if ($prihlaseni.email != '') }}    
+            <td> {{ foreach ($stitky_vazby as $stitek) }} 
+                    {{ if ($knizka.id == $stitek.knizka) }}
+                        {{ $stitek.nazev }}
+                    {{ endif }}
+                {{ endforeach}}
+        {{ endif }}
         <td> <a href="nova_recenze.php?kniha_id={{ $knizka.id }}"> přidat recenzi </a> </td>
-        <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td>
+
+
+        </td>
+        <!-- <td> <a href="stitek_pridat.php?knizka_id={{ knizka.id }}"> štítky </a> </td> -->
         {{ if ($prihlaseni.email == 'admin@admin') }}
             <td> <a href="edit_knizka.php?knizka_id={{ $knizka.id }}"> upravit </a> </td>
             <td> <a href="delete_knizka.php?knizka_id={{ knizka.id }}"> smazat </a> </td>

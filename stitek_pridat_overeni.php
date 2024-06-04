@@ -12,8 +12,12 @@
         $query = $db->prepare('INSERT INTO stitky(nazev, id_vlastnik) VALUES (:stitek_text, :vlastnik_id)');
         $query->execute([':stitek_text' => $_POST['stitek_text'], ':vlastnik_id' => $prihlaseni['id']]);
         $stitek_id = $db->lastInsertId();
+        $stitek_text = $novy_stitek;
     }
     else{
+        $query = $db->prepare('SELECT stitky.nazev FROM stitky WHERE :stitek_id = stitky.id');
+        $query->execute(['stitek_id'=>$_POST['stitek_id']]);
+        $stitek_text = $query->fetchAll(PDO::FETCH_ASSOC)[0]['nazev'];
         $stitek_id = $_POST['stitek_id'];
     }
 
@@ -25,7 +29,7 @@
 
     $knizka = $query_knizka->fetchAll(PDO::FETCH_ASSOC)[0];
 
-    $vysledek = ['knizka' => $knizka, 'stitek' => $_POST['stitek_text']];
+    $vysledek = ['knizka' => $knizka, 'stitek' => $stitek_text];
     $vysledek['prihlaseni'] = $prihlaseni;
 
     $et = EasyTemplate::new();
